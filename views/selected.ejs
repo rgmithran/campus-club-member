@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Selected Member Details</title>
+</head>
+
+<body>
+
+    <h1>Selected Member Details</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>Name</th>
+            <th>Club Name</th>
+            <th>Role</th>
+            <th>Points</th>
+        </tr>
+
+        <% members.forEach(member => { %>
+
+        <tr>
+            <td><%= member.name %></td>
+            <td><%= member.clubName %></td>
+            <td><%= member.role %></td>
+            <td><%= member.points %></td>
+        </tr>
+
+        <% }); %>
+
+    </table>
+
+    <br>
+
+    <a href="/">Back to Home</a>
+
+</body>
+
+</html>

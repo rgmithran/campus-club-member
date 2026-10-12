@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Club Members</title>
+</head>
+
+<body>
+
+    <h1>Campus Club Member Management System</h1>
+    <h2>Search Members by Club and Points</h2>
+
+<form action="/search" method="GET">
+
+    <label>Club Name:</label>
+    <input type="text" name="clubName" placeholder="Example: Coding Club">
+
+    <label>Minimum Points:</label>
+    <input type="number" name="points" placeholder="Example: 100">
+
+    <button type="submit">Search</button>
+
+</form>
+<h2>Search Member by ID</h2>
+
+<form action="/member" method="GET">
+
+    <label>Member ID:</label>
+    <input type="text" name="memberId" placeholder="Example: CM003">
+
+    <button type="submit">Search Member</button>
+
+</form>
+<h2>Update Member</h2>
+
+<form action="/update" method="POST">
+
+    <label>Member ID:</label>
+    <input type="text" name="memberId" placeholder="Example: CM001">
+
+    <label>New Role:</label>
+    <input type="text" name="role" placeholder="Example: Coordinator">
+
+    <label>New Points:</label>
+    <input type="number" name="points" placeholder="Example: 100">
+
+    <button type="submit">Update Member</button>
+
+</form>
+
+    <h2>All Club Members</h2>
+
+    <table border="1">
+        <tr>
+            <th>Member ID</th>
+            <th>Name</th>
+            <th>Club Name</th>
+            <th>Year</th>
+            <th>Role</th>
+            <th>Points</th>
+            <th>Interests</th>
+            <th>Status</th>
+        </tr>
+
+        <% members.forEach(member => { %>
+
+        <tr>
+            <td><%= member.memberId %></td>
+            <td><%= member.name %></td>
+            <td><%= member.clubName %></td>
+            <td><%= member.yearOfStudy %></td>
+            <td><%= member.role %></td>
+            <td><%= member.points %></td>
+            <td><%= member.interests.join(", ") %></td>
+            <td><%= member.status %></td>
+        </tr>
+
+        <% }); %>
+
+    </table>
+
+</body>
+</html>
